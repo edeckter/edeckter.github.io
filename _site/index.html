@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deckter Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Deckter Data</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="active visible-xs-block"><a href="/links.html">Links</a></li>
+                    <li class="active"><a href="/archive.html">Archive</a></li>
+                    <li class="active"><a href="/about.html">About</a></li>
+                    <li class="active"><a href="/feed.xml">RSS</a></li>
+                    
+                    
+                      <li class="active"><a href="https://github.com/edeckter">Github</a></li>
+                    
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-3 hidden-xs">
+            <div class="sidebar well">
+Insights for a data-driven world.
+</div>
+
+<div class="sidebar well">
+    <h1>Recent Posts</h1>
+    <ul>
+        
+          <li><a href="/2019/02/oscar-ratings">Oscar Ratings Analysis</a></li>
+        
+          <li><a href="/2019/02/welcome-to-deckter-data">Welcome to Deckter Data!</a></li>
+        
+    </ul>
+</div>
+
+<div class="sidebar well">
+<h1>Links</h1>
+<ul>
+  <li><a href="www.linkedin.com/in/erika-deckter-1831a4133">LinkedIn</a></li>
+</ul>
+
+</div>
+
+        </div>
+        <div class="col-md-9">
+            
+<div class="article">
+    <div class="well">
+        <h1><a href="/2019/02/oscar-ratings">Feb 21, 2019 - Oscar Ratings Analysis</a></h1>
+        
+        <div class="content">
+            <p>In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the annual ratings telecast.  I performed this analysis using R and the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package.</p>
+
+<p>The Academy of Motion Pictures Arts and Sciences (AMPAS) has been giving out the Academy Awards, also known as the Oscars, for the last 90 years.  In the last decade, the Academy has made a number of changes to the awards and ceremony in an effort to maintain cultural relevance, including announcing (and then quickly retracting) a new “Best Popular Film” category in 2018.  The idea of this new category prompted me to investigate the following research question: What factors influence the ratings of the annual Oscars telecast?</p>
+
+<p>Why ratings?  The more people (specifically Americans in this investigation) watch a live event on television, the more likely that event is to dominate the cultural conversation in the time period around the event.  In addition, ratings can be equated pretty easily into revenue.  ABC currently has the rights to broadcast the Oscars telecast in the US through 2028.  The higher the anticipated ratings, the more ABC can charge for advertising during the broadcast.  And in turn ABC’s expected ad revenue sets the price the network pays to AMPAS for the broadcast rights.</p>
+
+<p>First, let’s look at how the ratings have changed year-over-year from 2001 to 2018.</p>
+
+<p><img src="images/oscars_yoy.jpeg" /></p>
+
+<p>And now we can compare the Oscar ratings to ratings to other awards shows and even sports (the Summer and Winter Olympics opening ceremony).</p>
+
+<p><img src="images/ratings_comparison.jpeg" /></p>
+
+<p>There is enough evidence of a correlation that this trend warrants further investigation.</p>
+
+<h1 id="factors-contributing-to-oscar-ratings">Factors Contributing to Oscar Ratings</h1>
+<p>One possible factor in the decline of live network television ratings is the rise of streaming.  This next visualization compares the Oscar ratings from 2011 through 2018 with the number of Netflix subscribers in the US over the same period.</p>
+
+<p><img src="images/oscars_vs_netflix.jpeg" /></p>
+
+<p>So, are people even going to the movies anymore?  And if they are, does that have an impact on Oscar ratings?  To answer this question, I looked at the overall movie tickets sales for the prior year and compared that to the Oscar telecast ratings.</p>
+
+<p><img src="images/box_office.jpeg" /></p>
+
+<p>Finally, I looked at the specific box office performance of the movies nominated for Best Picture.  First, I trended the domestic gross box office to 2018 US dollars.  Then I looked at which years had at least one Best Picture that made over $200M at the box office.</p>
+
+<p><img src="images/ratings_boxplot.jpeg" /></p>
+
+<p>There is certainly reason to believe that nominating movies a lot of people have seen will increase the ratings of the Oscars telecast.  So maybe the “Popular Film” category wasn’t such a bad idea after all.</p>
+
+<h1 id="future-research">Future Research</h1>
+<p>While I examined a number of factors that might influence Oscar ratings, there are many other potential factors.  Here is a sample of other factors to investigate in the future:</p>
+<ul>
+  <li>Choice of Oscar host (or no host as we will have in 2019)</li>
+  <li>Musical performances on the telecast (and the related Best Original Song category)</li>
+  <li>Genres of nominated films</li>
+  <li>Diversity of nominees (e.g., #OscarsSoWhite)</li>
+  <li>Total number of films represented in nominees (Are there a few films with all the nominations or is it more evenly spread across many films?)</li>
+  <li>Cultural factors (such as politics and campaigns like #MeToo)</li>
+  <li>Release dates of nominees (e.g., summer vs. winter release)</li>
+  <li>Availability of nominees on streaming/DVD prior to the awards ceremony</li>
+</ul>
+
+<h1 id="data-sources">Data Sources</h1>
+<p>The primary source for the ratings information is Nielsen; however, I obtained the actual data through a number of secondary sources.  Statistica was used to collect the <a href="http://www.statista.com/statistics/253743/academy-awards--number-of-viewers/">Oscars</a>, <a href="http://www.statista.com/statistics/266669/golden-globes--number-of-viewers/">Golden Globes</a> and <a href="http://www.statista.com/statistics/260428/emmy-awards--number-of-viewers/">Emmys</a> ratings, as well as the Olympics opening ceremony ratings (both <a href="http://www.statista.com/statistics/237448/viewers-of-the-summer-olympics-opening-ceremony-in-the-us/">Summer</a> and <a href="http://www.statista.com/statistics/587463/winter-olympics-opening-ceremony-number-viewers-usa/">Winter</a>).  Ratings for the Grammy Awards were found at TV by the Numbers <a href="http://tvbythenumbers.zap2it.com/reference/grammy-awards-tv-ratings/40427/">here</a>, <a href="http://tvbythenumbers.zap2it.com/more-tv-news/the-grammys-are-having-a-pretty-good-decade-in-the-ratings/">here</a> and <a href="http://tvbythenumbers.zap2it.com/daily-ratings/tv-ratings-sunday-jan-28-2018/">here</a> and <a href="http://www.forbes.com/sites/bizblog/2010/02/01/grammy-ratings-soar/#370a185b7a17">Forbes</a>.  Netflix subscriber information was found at <a href="http://www.recode.net/2018/1/22/16920150/netflix-q4-2017-earnings-subscribers">Recode</a>.</p>
+
+<p>Historical information on Oscar Best Picture nominees was accessed from the <a href="http://awardsdatabase.oscars.org/">Official Academy Awards Database</a> with additional information about each film coming from <a href="http://www.imdb.com">IMDB</a>.  Box office figures were from <a href="https://www.boxofficemojo.com/yearly/">Box Office Mojo</a> and <a href="http://www.kaggle.com/eliasdabbas/boxofficemojo-alltime-domestic-data">Kaggle</a> (although I did spot-check the formatted data from Kaggle from the original Box Office Mojo source).  All box office values were trended to 2018 US dollars, using inflation data from the Federeal Reserve Bank of Minneapolis <a href="http://www.minneapolisfed.org/community/financial-and-economic-education/cpi-calculator-information/consumer-price-index-and-inflation-rates-1913">website</a>.</p>
+
+<p>A note on year: The Oscars telecast airs in February/March and awards movies that were released in the previous calendar year.  For example, the Oscars that are set to air on February 24, 2019 will give out awards for movies released in 2018.  In order to remain consistent with ratings information, the year for all nominated films has been aligned with the year of the corresponding telecast (e.g., box office figures for the year “2000” in all visualizations correspond to movies released during the 1999 calendar year).</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class="well">
+        <h1><a href="/2019/02/welcome-to-deckter-data">Feb 21, 2019 - Welcome to Deckter Data!</a></h1>
+        
+        <div class="content">
+            <p>This site is dedicated to my love of all things data!</p>
+
+<h1 id="about-me">About me</h1>
+<p>I am a master’s candidate in Business Intelligence &amp; Analytics at Stevens Institute of Technology.  I have 14 years of professional experience in the insurance industry, primarily as a catastrophe modeling analyst, but also in IT operations and cybersecurity.</p>
+
+<p>Check me out on <a href="https://www.linkedin.com/in/erika-deckter-1831a4133">LinkedIn</a></p>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="pagination">
+  
+  <span class="page_number ">Page: 1 of 1</span>
+  
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+            <p class="copyright">&copy;2019 Deckter Data. Powered by <a href="http://jekyllrb.com">Jekyll</a>, using the <a href="https://github.com/scotte/jekyll-clean">Jekyll-Clean theme</a>.
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+

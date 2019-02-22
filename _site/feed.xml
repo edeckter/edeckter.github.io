@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Deckter Data</title>
+		<description>Insights for a data-driven world.</description>
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Oscar Ratings Analysis</title>
+				<description>&lt;p&gt;In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the annual ratings telecast.  I performed this analysis using R and the &lt;a href=&quot;https://ggplot2.tidyverse.org/&quot;&gt;ggplot2&lt;/a&gt; package.&lt;/p&gt;
+
+&lt;p&gt;The Academy of Motion Pictures Arts and Sciences (AMPAS) has been giving out the Academy Awards, also known as the Oscars, for the last 90 years.  In the last decade, the Academy has made a number of changes to the awards and ceremony in an effort to maintain cultural relevance, including announcing (and then quickly retracting) a new “Best Popular Film” category in 2018.  The idea of this new category prompted me to investigate the following research question: What factors influence the ratings of the annual Oscars telecast?&lt;/p&gt;
+
+&lt;p&gt;Why ratings?  The more people (specifically Americans in this investigation) watch a live event on television, the more likely that event is to dominate the cultural conversation in the time period around the event.  In addition, ratings can be equated pretty easily into revenue.  ABC currently has the rights to broadcast the Oscars telecast in the US through 2028.  The higher the anticipated ratings, the more ABC can charge for advertising during the broadcast.  And in turn ABC’s expected ad revenue sets the price the network pays to AMPAS for the broadcast rights.&lt;/p&gt;
+
+&lt;p&gt;First, let’s look at how the ratings have changed year-over-year from 2001 to 2018.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/oscars_yoy.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And now we can compare the Oscar ratings to ratings to other awards shows and even sports (the Summer and Winter Olympics opening ceremony).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ratings_comparison.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is enough evidence of a correlation that this trend warrants further investigation.&lt;/p&gt;
+
+&lt;h1 id=&quot;factors-contributing-to-oscar-ratings&quot;&gt;Factors Contributing to Oscar Ratings&lt;/h1&gt;
+&lt;p&gt;One possible factor in the decline of live network television ratings is the rise of streaming.  This next visualization compares the Oscar ratings from 2011 through 2018 with the number of Netflix subscribers in the US over the same period.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/oscars_vs_netflix.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, are people even going to the movies anymore?  And if they are, does that have an impact on Oscar ratings?  To answer this question, I looked at the overall movie tickets sales for the prior year and compared that to the Oscar telecast ratings.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/box_office.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, I looked at the specific box office performance of the movies nominated for Best Picture.  First, I trended the domestic gross box office to 2018 US dollars.  Then I looked at which years had at least one Best Picture that made over $200M at the box office.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ratings_boxplot.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is certainly reason to believe that nominating movies a lot of people have seen will increase the ratings of the Oscars telecast.  So maybe the “Popular Film” category wasn’t such a bad idea after all.&lt;/p&gt;
+
+&lt;h1 id=&quot;future-research&quot;&gt;Future Research&lt;/h1&gt;
+&lt;p&gt;While I examined a number of factors that might influence Oscar ratings, there are many other potential factors.  Here is a sample of other factors to investigate in the future:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Choice of Oscar host (or no host as we will have in 2019)&lt;/li&gt;
+  &lt;li&gt;Musical performances on the telecast (and the related Best Original Song category)&lt;/li&gt;
+  &lt;li&gt;Genres of nominated films&lt;/li&gt;
+  &lt;li&gt;Diversity of nominees (e.g., #OscarsSoWhite)&lt;/li&gt;
+  &lt;li&gt;Total number of films represented in nominees (Are there a few films with all the nominations or is it more evenly spread across many films?)&lt;/li&gt;
+  &lt;li&gt;Cultural factors (such as politics and campaigns like #MeToo)&lt;/li&gt;
+  &lt;li&gt;Release dates of nominees (e.g., summer vs. winter release)&lt;/li&gt;
+  &lt;li&gt;Availability of nominees on streaming/DVD prior to the awards ceremony&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;data-sources&quot;&gt;Data Sources&lt;/h1&gt;
+&lt;p&gt;The primary source for the ratings information is Nielsen; however, I obtained the actual data through a number of secondary sources.  Statistica was used to collect the &lt;a href=&quot;http://www.statista.com/statistics/253743/academy-awards--number-of-viewers/&quot;&gt;Oscars&lt;/a&gt;, &lt;a href=&quot;http://www.statista.com/statistics/266669/golden-globes--number-of-viewers/&quot;&gt;Golden Globes&lt;/a&gt; and &lt;a href=&quot;http://www.statista.com/statistics/260428/emmy-awards--number-of-viewers/&quot;&gt;Emmys&lt;/a&gt; ratings, as well as the Olympics opening ceremony ratings (both &lt;a href=&quot;http://www.statista.com/statistics/237448/viewers-of-the-summer-olympics-opening-ceremony-in-the-us/&quot;&gt;Summer&lt;/a&gt; and &lt;a href=&quot;http://www.statista.com/statistics/587463/winter-olympics-opening-ceremony-number-viewers-usa/&quot;&gt;Winter&lt;/a&gt;).  Ratings for the Grammy Awards were found at TV by the Numbers &lt;a href=&quot;http://tvbythenumbers.zap2it.com/reference/grammy-awards-tv-ratings/40427/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://tvbythenumbers.zap2it.com/more-tv-news/the-grammys-are-having-a-pretty-good-decade-in-the-ratings/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://tvbythenumbers.zap2it.com/daily-ratings/tv-ratings-sunday-jan-28-2018/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://www.forbes.com/sites/bizblog/2010/02/01/grammy-ratings-soar/#370a185b7a17&quot;&gt;Forbes&lt;/a&gt;.  Netflix subscriber information was found at &lt;a href=&quot;http://www.recode.net/2018/1/22/16920150/netflix-q4-2017-earnings-subscribers&quot;&gt;Recode&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Historical information on Oscar Best Picture nominees was accessed from the &lt;a href=&quot;http://awardsdatabase.oscars.org/&quot;&gt;Official Academy Awards Database&lt;/a&gt; with additional information about each film coming from &lt;a href=&quot;http://www.imdb.com&quot;&gt;IMDB&lt;/a&gt;.  Box office figures were from &lt;a href=&quot;https://www.boxofficemojo.com/yearly/&quot;&gt;Box Office Mojo&lt;/a&gt; and &lt;a href=&quot;http://www.kaggle.com/eliasdabbas/boxofficemojo-alltime-domestic-data&quot;&gt;Kaggle&lt;/a&gt; (although I did spot-check the formatted data from Kaggle from the original Box Office Mojo source).  All box office values were trended to 2018 US dollars, using inflation data from the Federeal Reserve Bank of Minneapolis &lt;a href=&quot;http://www.minneapolisfed.org/community/financial-and-economic-education/cpi-calculator-information/consumer-price-index-and-inflation-rates-1913&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A note on year: The Oscars telecast airs in February/March and awards movies that were released in the previous calendar year.  For example, the Oscars that are set to air on February 24, 2019 will give out awards for movies released in 2018.  In order to remain consistent with ratings information, the year for all nominated films has been aligned with the year of the corresponding telecast (e.g., box office figures for the year “2000” in all visualizations correspond to movies released during the 1999 calendar year).&lt;/p&gt;
+</description>
+				<pubDate>Thu, 21 Feb 2019 22:24:00 -0500</pubDate>
+				<link>http://localhost:4000/2019/02/oscar-ratings</link>
+				<guid isPermaLink="true">http://localhost:4000/2019/02/oscar-ratings</guid>
+			</item>
+		
+			<item>
+				<title>Welcome to Deckter Data!</title>
+				<description>&lt;p&gt;This site is dedicated to my love of all things data!&lt;/p&gt;
+
+&lt;h1 id=&quot;about-me&quot;&gt;About me&lt;/h1&gt;
+&lt;p&gt;I am a master’s candidate in Business Intelligence &amp;amp; Analytics at Stevens Institute of Technology.  I have 14 years of professional experience in the insurance industry, primarily as a catastrophe modeling analyst, but also in IT operations and cybersecurity.&lt;/p&gt;
+
+&lt;p&gt;Check me out on &lt;a href=&quot;https://www.linkedin.com/in/erika-deckter-1831a4133&quot;&gt;LinkedIn&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Thu, 21 Feb 2019 19:30:00 -0500</pubDate>
+				<link>http://localhost:4000/2019/02/welcome-to-deckter-data</link>
+				<guid isPermaLink="true">http://localhost:4000/2019/02/welcome-to-deckter-data</guid>
+			</item>
+		
+	</channel>
+</rss>
