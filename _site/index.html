@@ -80,13 +80,13 @@ Insights for a data-driven world.
         <h1><a href="/2019/02/oscar-ratings">Feb 21, 2019 - Oscar Ratings Analysis</a></h1>
         
         <div class="content">
-            <p>In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the annual ratings telecast.  I performed this analysis using R and the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package.</p>
+            <p>In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the telecast.  I performed this analysis using R and the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package for creating the visualizations.</p>
 
 <p>The Academy of Motion Pictures Arts and Sciences (AMPAS) has been giving out the Academy Awards, also known as the Oscars, for the last 90 years.  In the last decade, the Academy has made a number of changes to the awards and ceremony in an effort to maintain cultural relevance, including announcing (and then quickly retracting) a new “Best Popular Film” category in 2018.  The idea of this new category prompted me to investigate the following research question: What factors influence the ratings of the annual Oscars telecast?</p>
 
 <p>Why ratings?  The more people (specifically Americans in this investigation) watch a live event on television, the more likely that event is to dominate the cultural conversation in the time period around the event.  In addition, ratings can be equated pretty easily into revenue.  ABC currently has the rights to broadcast the Oscars telecast in the US through 2028.  The higher the anticipated ratings, the more ABC can charge for advertising during the broadcast.  And in turn ABC’s expected ad revenue sets the price the network pays to AMPAS for the broadcast rights.</p>
 
-<p>First, let’s look at how the ratings have changed year-over-year from 2001 to 2018.</p>
+<p>Before we get started looking at what influences rates, let’s look at how the ratings have changed year-over-year from 2001 to 2018.</p>
 
 <p><img src="/images/oscars_yoy.jpeg" /></p>
 
@@ -94,25 +94,25 @@ Insights for a data-driven world.
 
 <p><img src="/images/ratings_comparison.jpeg" /></p>
 
-<p>There is enough evidence of a correlation that this trend warrants further investigation.</p>
-
 <h1 id="factors-contributing-to-oscar-ratings">Factors Contributing to Oscar Ratings</h1>
 <p>One possible factor in the decline of live network television ratings is the rise of streaming.  This next visualization compares the Oscar ratings from 2011 through 2018 with the number of Netflix subscribers in the US over the same period.</p>
 
 <p><img src="/images/oscars_vs_netflix.jpeg" /></p>
 
-<p>So, are people even going to the movies anymore?  And if they are, does that have an impact on Oscar ratings?  To answer this question, I looked at the overall movie tickets sales for the prior year and compared that to the Oscar telecast ratings.</p>
+<p>So, are people even going to the movies anymore?  And if they are, does that have an impact on Oscar ratings?  To answer this question, I looked at the overall movie ticket sales for the year prior to each Oscar telecast and compared that to ratings.</p>
 
 <p><img src="/images/box_office.jpeg" /></p>
+
+<p>There is enough evidence of a correlation that this trend warrants further investigation.</p>
 
 <p>Finally, I looked at the specific box office performance of the movies nominated for Best Picture.  First, I trended the domestic gross box office to 2018 US dollars.  Then I looked at which years had at least one Best Picture that made over $200M at the box office.</p>
 
 <p><img src="/images/ratings_boxplot.jpeg" /></p>
 
-<p>There is certainly reason to believe that nominating movies a lot of people have seen will increase the ratings of the Oscars telecast.  So maybe the “Popular Film” category wasn’t such a bad idea after all.</p>
+<p>There is certainly reason to believe that nominating movies many people have seen will increase the ratings of the Oscar telecast.  So maybe the “Popular Film” category wasn’t such a bad idea after all.</p>
 
 <h1 id="future-research">Future Research</h1>
-<p>While I examined a number of factors that might influence Oscar ratings, there are many other potential factors.  Here is a sample of other factors to investigate in the future:</p>
+<p>While I examined a number of factors that might influence Oscar ratings in this post, there are many other potential factors.  Here is a sample of other factors to investigate in the future:</p>
 <ul>
   <li>Choice of Oscar host (or no host as we will have in 2019)</li>
   <li>Musical performances on the telecast (and the related Best Original Song category)</li>

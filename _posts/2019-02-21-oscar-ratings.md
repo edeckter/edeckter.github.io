@@ -56,9 +56,3 @@ The primary source for the ratings information is Nielsen; however, I obtained t
 Historical information on Oscar Best Picture nominees was accessed from the [Official Academy Awards Database](http://awardsdatabase.oscars.org/) with additional information about each film coming from [IMDB](http://www.imdb.com).  Box office figures were from [Box Office Mojo](https://www.boxofficemojo.com/yearly/) and [Kaggle](http://www.kaggle.com/eliasdabbas/boxofficemojo-alltime-domestic-data) (although I did spot-check the formatted data from Kaggle from the original Box Office Mojo source).  All box office values were trended to 2018 US dollars, using inflation data from the Federeal Reserve Bank of Minneapolis [website](http://www.minneapolisfed.org/community/financial-and-economic-education/cpi-calculator-information/consumer-price-index-and-inflation-rates-1913).  
 
 A note on year: The Oscars telecast airs in February/March and awards movies that were released in the previous calendar year.  For example, the Oscars that are set to air on February 24, 2019 will give out awards for movies released in 2018.  In order to remain consistent with ratings information, the year for all nominated films has been aligned with the year of the corresponding telecast (e.g., box office figures for the year "2000" in all visualizations correspond to movies released during the 1999 calendar year).
-
-<small>
-    {% for tag in page.tags %}
-    {{ tag }}
-    {% endfor %}
-</small>
