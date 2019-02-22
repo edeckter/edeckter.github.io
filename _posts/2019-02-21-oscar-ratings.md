@@ -13,7 +13,7 @@ Why ratings?  The more people (specifically Americans in this investigation) wat
 
 First, let's look at how the ratings have changed year-over-year from 2001 to 2018.
 
-<img src="{{'images/oscars_yoy.jpeg' | relative_url }}">
+<img src="{{'images/oscars_yoy.jpeg' | prepend:site.baseurl }}">
 
 And now we can compare the Oscar ratings to ratings to other awards shows and even sports (the Summer and Winter Olympics opening ceremony).
 
