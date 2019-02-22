@@ -7,7 +7,7 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Oscar Ratings Analysis</title>
+				<title>What Influences Oscar Ratings?</title>
 				<description>&lt;p&gt;In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the telecast.  I performed this analysis using R and the &lt;a href=&quot;https://ggplot2.tidyverse.org/&quot;&gt;ggplot2&lt;/a&gt; package for creating the visualizations.&lt;/p&gt;
 
 &lt;p&gt;The Academy of Motion Pictures Arts and Sciences (AMPAS) has been giving out the Academy Awards, also known as the Oscars, for the last 90 years.  In the last decade, the Academy has made a number of changes to the awards and ceremony in an effort to maintain cultural relevance, including announcing (and then quickly retracting) a new “Best Popular Film” category in 2018.  The idea of this new category prompted me to investigate the following research question: What factors influence the ratings of the annual Oscars telecast?&lt;/p&gt;

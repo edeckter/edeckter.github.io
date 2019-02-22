@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oscar Ratings Analysis"
+title: "What Influences Oscar Ratings?"
 date: 2019-02-21 22:24 -0500
 tags: R, data visualization
 comments: false
