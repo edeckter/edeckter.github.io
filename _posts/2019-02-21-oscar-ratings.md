@@ -13,11 +13,11 @@ Why ratings?  The more people (specifically Americans in this investigation) wat
 
 First, let's look at how the ratings have changed year-over-year from 2001 to 2018.
 
-<img src="images/oscars_yoy.jpeg">
+<img src="{{'images/oscars_yoy.jpeg' | relative_url }}">
 
 And now we can compare the Oscar ratings to ratings to other awards shows and even sports (the Summer and Winter Olympics opening ceremony).
 
-<img src="images/ratings_comparison.jpeg">
+<img src="{{'images/ratings_comparison.jpeg' | relative_url }}">
 
 There is enough evidence of a correlation that this trend warrants further investigation.
 
@@ -26,15 +26,15 @@ Factors Contributing to Oscar Ratings
 =====================================
 One possible factor in the decline of live network television ratings is the rise of streaming.  This next visualization compares the Oscar ratings from 2011 through 2018 with the number of Netflix subscribers in the US over the same period.  
 
-<img src="images/oscars_vs_netflix.jpeg">
+<img src="{{'images/oscars_vs_netflix.jpeg' | relative_url }}">
 
 So, are people even going to the movies anymore?  And if they are, does that have an impact on Oscar ratings?  To answer this question, I looked at the overall movie tickets sales for the prior year and compared that to the Oscar telecast ratings.
 
-<img src="images/box_office.jpeg">
+<img src="{{'images/box_office.jpeg' | relative_url }}">
 
 Finally, I looked at the specific box office performance of the movies nominated for Best Picture.  First, I trended the domestic gross box office to 2018 US dollars.  Then I looked at which years had at least one Best Picture that made over $200M at the box office.
 
-<img src="images/ratings_boxplot.jpeg">
+<img src="{{'images/ratings_boxplot.jpeg' | relative_url }}">
 
 There is certainly reason to believe that nominating movies a lot of people have seen will increase the ratings of the Oscars telecast.  So maybe the "Popular Film" category wasn't such a bad idea after all.
 
