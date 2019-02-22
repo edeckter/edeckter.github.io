@@ -10,11 +10,11 @@ url: https://edeckter.github.io
 # be the project name.
 # *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
 #     run it like so: jekyll serve --baseurl=''
-baseurl: ''
+baseurl: '/blog/'
 
 # These can be '' to hide the Github or Gitlab nav buttons
 github: 'edeckter'
-gitlab: 'blog'
+gitlab: ''
 
 # Set this to your UA-# value, or '' to disable the block completely
 gaaccount: ''
