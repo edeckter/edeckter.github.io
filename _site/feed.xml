@@ -7,6 +7,58 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Gender Politics</title>
+				<description>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/d3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I was reading &lt;a href=&quot;https://www.theatlantic.com/magazine/archive/2019/01/authoritarian-sexism-trump-duterte/576382/&quot;&gt;this&lt;/a&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; article in &lt;a href=&quot;https://www.theatlantic.com&quot;&gt;The Atlantic&lt;/a&gt;, and I was struck by the statistics near the end of the article.  Particularly, this section:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;In 2018, the Organization for Economic Cooperation and Development published the amount of time per day that women and men spent doing unpaid household chores such as cleaning, shopping, and child care. If you calculate the gender gap in each country, a pattern emerges. There is a striking correlation between countries where women and men behave more equally in the home and countries where women are more equally represented in government. Take Sweden, 44 percent of whose parliamentarians are women. There, the gap between the amount of housework done by men and that done by women is less than an hour a day. In the U.S., where women will soon make up roughly 23 percent of Congress, the housework gender gap is an hour and a half. In Hungary, where women account for 10 percent of parliament, it is well over two hours.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I decided to take a page out of Alberto Cairo’s book and create some visualizations from the raw OECD data cited in the article.  (Cairo literally did a similar exercise in Chapter 1 of his book &lt;a href=&quot;http://www.thefunctionalart.com/p/about-book.html&quot;&gt;The Functional Art&lt;/a&gt;.  He takes inspiration from fertility statistics in &lt;em&gt;The Rational Optimist: How Prosperity Evolves&lt;/em&gt; by Matt Ridley to create visualizations that verify the Ridley’s claims.)&lt;/p&gt;
+
+&lt;p&gt;First, I looked went to the &lt;a href=&quot;https://data.oecd.org/&quot;&gt;OECD&lt;/a&gt; website to get the raw data for the amount of &lt;a href=&quot;https://stats.oecd.org/index.aspx?queryid=54757&quot;&gt;unpaid work performed by gender&lt;/a&gt; and the &lt;a href=&quot;https://data.oecd.org/inequality/women-in-politics.htm&quot;&gt;number of female legislators&lt;/a&gt; in each reported country.&lt;/p&gt;
+
+&lt;p&gt;I am learning &lt;a href=&quot;https://d3js.org/&quot;&gt;D3.js&lt;/a&gt; and I thought this project would be a good way to try out my new skills and create some fun interactive visualizations.&lt;/p&gt;
+
+&lt;p&gt;I decided to start out with an interactive map, to visually compare unpaid work performed by men and women between the ages of 15 and 64.&lt;/p&gt;
+&lt;div class=&quot;drop-down&quot; id=&quot;map&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;viz1&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/gender_map.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The bar chart below is a side-by-side comparison of the percentage of unpaid work performed by women and the percent of female parliamentarians for each country.&lt;/p&gt;
+
+&lt;div class=&quot;drop-down&quot; id=&quot;chart&quot;&gt;Sort by: &lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;viz2&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/gender_barchart.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Around the world, women are still doing more than half of all unpaid household work.  But while the sortable bar chart is nice, it is difficult to see the “striking correlation” referenced in &lt;em&gt;The Atlantic&lt;/em&gt; article in this visualization.&lt;/p&gt;
+
+&lt;p&gt;This same data can be visualized in another way using a scatterplot.&lt;/p&gt;
+
+&lt;div class=&quot;section&quot; id=&quot;viz3&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/gender_scatterplot.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now we can see that for countries where there is a more equitable division of household labor, there is a noticeably larger proportion of female legislators.&lt;/p&gt;
+
+&lt;p&gt;And indeed, there is a correlation of -0.54 between the two variables.  The linear regression analysis has an R&lt;sup&gt;2&lt;/sup&gt; value of 0.29, which means that the percent of domestic labor done by women explains about 30% of the total variance in the number of women legislators by country.  So this isn’t the whole story, but it is certainly a part of it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.theatlantic.com/magazine/archive/2019/01/authoritarian-sexism-trump-duterte/576382/&quot;&gt;The New Authoritarians Are Waging War on Women&lt;/a&gt; by Peter Beinart.  Published in the January/February 2019 issue. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Wed, 10 Apr 2019 21:00:00 -0400</pubDate>
+				<link>http://localhost:4000/2019/04/gender-politics</link>
+				<guid isPermaLink="true">http://localhost:4000/2019/04/gender-politics</guid>
+			</item>
+		
+			<item>
 				<title>What Influences Oscar Ratings?</title>
 				<description>&lt;p&gt;In anticipation of the Academy Awards this weekend, I did an analysis to investigate what factors influence ratings of the telecast.  I performed this analysis using R and the &lt;a href=&quot;https://ggplot2.tidyverse.org/&quot;&gt;ggplot2&lt;/a&gt; package for creating the visualizations.&lt;/p&gt;
 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deckter Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Deckter Data</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="active visible-xs-block"><a href="/links.html">Links</a></li>
+                    <li class="active"><a href="/archive.html">Archive</a></li>
+                    <li class="active"><a href="/about.html">About</a></li>
+                    <!---<li class="active"><a href="/feed.xml">RSS</a></li>--->
+                    
+                    
+                      <li class="active"><a href="https://github.com/edeckter">Github</a></li>
+                    
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-3 hidden-xs">
+            <div class="sidebar well">
+Insights for a data-driven world.
+</div>
+
+<div class="sidebar well">
+    <h1>Recent Posts</h1>
+    <ul>
+        
+          <li><a href="/2019/04/gender-politics">Gender Politics</a></li>
+        
+          <li><a href="/2019/02/oscar-ratings">What Influences Oscar Ratings?</a></li>
+        
+          <li><a href="/2019/02/welcome-to-deckter-data">Welcome to Deckter Data!</a></li>
+        
+    </ul>
+</div>
+
+<div class="sidebar well">
+<h1>Links</h1>
+<ul>
+  <li><a href="www.linkedin.com/in/erika-deckter-1831a4133">LinkedIn</a></li>
+</ul>
+
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+                <h1><a href="/2019/04/gender-politics">Apr 10, 2019 - Gender Politics</a></h1>
+            
+            <div class="post-content">
+            <script type="text/javascript" src="/js/d3.js"></script>
+
+<p>I was reading <a href="https://www.theatlantic.com/magazine/archive/2019/01/authoritarian-sexism-trump-duterte/576382/">this</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> article in <a href="https://www.theatlantic.com">The Atlantic</a>, and I was struck by the statistics near the end of the article.  Particularly, this section:</p>
+<blockquote>
+  <p>In 2018, the Organization for Economic Cooperation and Development published the amount of time per day that women and men spent doing unpaid household chores such as cleaning, shopping, and child care. If you calculate the gender gap in each country, a pattern emerges. There is a striking correlation between countries where women and men behave more equally in the home and countries where women are more equally represented in government. Take Sweden, 44 percent of whose parliamentarians are women. There, the gap between the amount of housework done by men and that done by women is less than an hour a day. In the U.S., where women will soon make up roughly 23 percent of Congress, the housework gender gap is an hour and a half. In Hungary, where women account for 10 percent of parliament, it is well over two hours.</p>
+</blockquote>
+
+<p>I decided to take a page out of Alberto Cairo’s book and create some visualizations from the raw OECD data cited in the article.  (Cairo literally did a similar exercise in Chapter 1 of his book <a href="http://www.thefunctionalart.com/p/about-book.html">The Functional Art</a>.  He takes inspiration from fertility statistics in <em>The Rational Optimist: How Prosperity Evolves</em> by Matt Ridley to create visualizations that verify the Ridley’s claims.)</p>
+
+<p>First, I looked went to the <a href="https://data.oecd.org/">OECD</a> website to get the raw data for the amount of <a href="https://stats.oecd.org/index.aspx?queryid=54757">unpaid work performed by gender</a> and the <a href="https://data.oecd.org/inequality/women-in-politics.htm">number of female legislators</a> in each reported country.</p>
+
+<p>I am learning <a href="https://d3js.org/">D3.js</a> and I thought this project would be a good way to try out my new skills and create some fun interactive visualizations.</p>
+
+<p>I decided to start out with an interactive map, to visually compare unpaid work performed by men and women between the ages of 15 and 64.</p>
+<div class="drop-down" id="map"></div>
+<div class="section" id="viz1"></div>
+<script type="text/javascript" src="/js/gender_map.js"></script>
+
+<p>The bar chart below is a side-by-side comparison of the percentage of unpaid work performed by women and the percent of female parliamentarians for each country.</p>
+
+<div class="drop-down" id="chart">Sort by: </div>
+<div class="section" id="viz2"></div>
+<script type="text/javascript" src="/js/gender_barchart.js"></script>
+
+<p>Around the world, women are still doing more than half of all unpaid household work.  But while the sortable bar chart is nice, it is difficult to see the “striking correlation” referenced in <em>The Atlantic</em> article in this visualization.</p>
+
+<p>This same data can be visualized in another way using a scatterplot.</p>
+
+<div class="section" id="viz3"></div>
+<script type="text/javascript" src="/js/gender_scatterplot.js"></script>
+
+<p>Now we can see that for countries where there is a more equitable division of household labor, there is a noticeably larger proportion of female legislators.</p>
+
+<p>And indeed, there is a correlation of -0.54 between the two variables.  The linear regression analysis has an R<sup>2</sup> value of 0.29, which means that the percent of domestic labor done by women explains about 30% of the total variance in the number of women legislators by country.  So this isn’t the whole story, but it is certainly a part of it.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://www.theatlantic.com/magazine/archive/2019/01/authoritarian-sexism-trump-duterte/576382/">The New Authoritarians Are Waging War on Women</a> by Peter Beinart.  Published in the January/February 2019 issue. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+            </div>
+            
+            </div>
+          </div>
+          <div class="pagination">
+              
+              
+                <a class="btn btn-default" href="/2019/02/oscar-ratings" class="previous">Older Post</a>
+              
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+            <p class="copyright">&copy;2019 Erika Deckter. Powered by <a href="http://jekyllrb.com">Jekyll</a>, using the <a href="https://github.com/scotte/jekyll-clean">Jekyll Clean theme</a>.
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+
