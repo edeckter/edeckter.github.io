@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deckter Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Deckter Data</a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="active visible-xs-block"><a href="/links.html">Links</a></li>
+                    <li class="active"><a href="/archive.html">Archive</a></li>
+                    <li class="active"><a href="/about.html">About</a></li>
+                    <!---<li class="active"><a href="/feed.xml">RSS</a></li>--->
+                    
+                    
+                      <li class="active"><a href="https://github.com/edeckter">Github</a></li>
+                    
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-3 hidden-xs">
+            <div class="sidebar well">
+Insights for a data-driven world.
+</div>
+
+<div class="sidebar well">
+    <h1>Recent Posts</h1>
+    <ul>
+        
+          <li><a href="/2019/04/monty-hall">Simulating the "Monty Hall Problem"</a></li>
+        
+          <li><a href="/2019/04/box-office-2018">An Examination of the US Box Office in 2018</a></li>
+        
+          <li><a href="/2019/04/gender-politics">Gender Politics</a></li>
+        
+          <li><a href="/2019/02/oscar-ratings">What Influences Oscar Ratings?</a></li>
+        
+          <li><a href="/2019/02/welcome-to-deckter-data">Welcome to Deckter Data!</a></li>
+        
+    </ul>
+</div>
+
+<div class="sidebar well">
+    <h1>Data Projects</h1>
+<ul>
+    <li><a href="https://edeckter.github.io/2018_boxoffice/movies_2018.html">2018 Atlantic Hurricanes</a>
+    <li><a href="https://edeckter.github.io/2018_boxoffice/movies_2018.html">Annual Box Office Analysis (2018)</a></li>
+    <li><a href="https://edeckter.github.io/gender_in_politics/">Gender in Politics</a></li>
+
+</ul>
+
+</div>
+
+<div class="sidebar well">
+    <h1>Links</h1>
+<ul>
+  <li><a href="www.linkedin.com/in/erika-deckter-1831a4133">LinkedIn</a></li>
+</ul>
+
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+                <h1><a href="/2019/04/monty-hall">Apr 11, 2019 - Simulating the "Monty Hall Problem"</a></h1>
+            
+            <div class="post-content">
+            <p>Back when I was first learning R, I decided to write a simulation to solve the age-old “Monty Hall problem.”</p>
+
+<p>For those of you who don’t remember the old television program <em>Let’s Make a Deal</em> hosted by Monty Hall, here is the setup.</p>
+
+<p>You are a contestant on <em>Let’s Make a Deal</em> hosted by Monty Hall.  Monty offers you a prize hidden behind 1 of 3 doors.  Two of the doors hide a goat (joke prize) and one door hides a car.  Once you pick, Monty will reveal a goat behind one of the doors not picked.  Should you stick with your original door or switch to the remaining door?</p>
+
+<h1 id="why-simulation">Why Simulation?</h1>
+<p>While this problem can be solved with statistics, sometimes showing is better than telling.  If you simulate a large number of runs, you should reach convergence.  Simulation is a great way to get a lot of data for a given problem without having to wait to collect it in real time.  For example, if you wanted to have 10,000 years of hurricane history, you could either become immortal and wait 10,000 years, or you could run a simulation.</p>
+
+<p>The key to simulation is to utilize randomization.  In the Monty Hall simulation, I randomize which door hides the car (door 1, 2 or 3) and then I also randomize which door the simulated contestant selects for each iteration.  This randomization avoids bias in my simulation.</p>
+
+<h1 id="the-code">The Code</h1>
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Set number of simulations</span><span class="w">
+</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">10000</span><span class="w">
+
+</span><span class="c1">#Create data frame for win outcome (whether you win a car or a goat)</span><span class="w">
+</span><span class="n">outcome</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="o">=</span><span class="n">n</span><span class="p">))</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">outcome</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"stick"</span><span class="p">,</span><span class="s2">"switch"</span><span class="p">)</span><span class="w">
+
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="c1">#Prize vector</span><span class="w">
+  </span><span class="n">prize</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"goat"</span><span class="p">,</span><span class="s2">"goat"</span><span class="p">,</span><span class="s2">"goat"</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1">#Randomly place car behind one door</span><span class="w">
+  </span><span class="n">prize</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"car"</span><span class="w">
+
+  </span><span class="c1">#Pick a door</span><span class="w">
+  </span><span class="n">door</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1">#Monty reveals a goat ("known_goat" door is the door Monty opens)</span><span class="w">
+  </span><span class="n">goat_doors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">door</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">prize</span><span class="o">==</span><span class="s2">"goat"</span><span class="p">),</span><span class="w"> </span><span class="n">picked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">which</span><span class="p">(</span><span class="n">prize</span><span class="o">==</span><span class="s2">"goat"</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">door</span><span class="p">)</span><span class="w">
+  </span><span class="n">known_goat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ifelse</span><span class="p">(</span><span class="n">goat_doors</span><span class="o">$</span><span class="n">picked</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">==</span><span class="kc">FALSE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">goat_doors</span><span class="o">$</span><span class="n">picked</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">==</span><span class="kc">FALSE</span><span class="p">,</span><span class="n">goat_doors</span><span class="o">$</span><span class="n">door</span><span class="p">[</span><span class="m">1</span><span class="p">],</span><span class="n">goat_doors</span><span class="o">$</span><span class="n">door</span><span class="p">[</span><span class="n">goat_doors</span><span class="o">$</span><span class="n">picked</span><span class="o">==</span><span class="kc">FALSE</span><span class="p">])</span><span class="w">
+
+
+  </span><span class="c1">#Prize won</span><span class="w">
+  </span><span class="n">outcome</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">prize</span><span class="p">[</span><span class="n">door</span><span class="p">],</span><span class="n">prize</span><span class="p">[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="n">door</span><span class="p">,</span><span class="n">known_goat</span><span class="p">)])</span><span class="w"> </span><span class="c1">#prize behind original door and prize behind remaining door</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c1">#Calculate winning percentage for sticking with the original door vs. switching doors</span><span class="w">
+</span><span class="n">win_odds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">stick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">outcome</span><span class="o">$</span><span class="n">stick</span><span class="o">==</span><span class="s2">"car"</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">outcome</span><span class="o">$</span><span class="n">switch</span><span class="o">==</span><span class="s2">"car"</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="outcome">Outcome</h1>
+<p>The bar chart below shows the percentage of simulations the car is won depending on whether the contestant decided to stick with the original door choice or switch to the other door.</p>
+
+<p><img src="/images/monty_hall.jpeg" /></p>
+
+<p>As you can see, you are twice as likely to win if you switch doors after Monty reveals a goat!</p>
+
+
+            </div>
+            
+            </div>
+          </div>
+          <div class="pagination">
+              
+              
+                <a class="btn btn-default" href="/2019/04/box-office-2018" class="previous">Older Post</a>
+              
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+            <p class="copyright">&copy;2019 Erika Deckter. Powered by <a href="http://jekyllrb.com">Jekyll</a>, using the <a href="https://github.com/scotte/jekyll-clean">Jekyll Clean theme</a>.
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+

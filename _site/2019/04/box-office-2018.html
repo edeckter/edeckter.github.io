@@ -45,6 +45,7 @@
     </div>
 </div>
 
+
 <div class="container container-left">
     <div class="row">
         <div class="col-md-3 hidden-xs">
@@ -90,18 +91,47 @@ Insights for a data-driven world.
 
         </div>
         <div class="col-md-9">
+          <div class="article">
             <div class="well">
-    <h1>About me</h1>
-    <img src="/images/Erika_2018.jpg" width=100,height=100><br><br>
-    <p>My name is Erika Deckter.  I am a data scientist based in New York City.  I am currently a master's candidate in Business Intelligence & Analytics at Stevens Institute of Technology.
-    <br><br>I have 14 years of professional analytics and IT experience, having started my career in the (re)insurance industry.
-    <br><br>My interests include pop culture, dogs and using data to make sense of this crazy world.
-    </p>
-</div>
+                <h1><a href="/2019/04/box-office-2018">Apr 10, 2019 - An Examination of the US Box Office in 2018</a></h1>
+            
+            <div class="post-content">
+            <script type="text/javascript" src="/js/d3.js"></script>
 
+<p>I was tasked with creating an interactive visualization for my Data Visualization class.  For this project, I decided to create data visualizations that would allow a user to explore the box office results for 2018.</p>
+
+<h1 id="data-preparation">Data Preparation</h1>
+<p>US domestic box office gross sales were pulled for every movie for every day in 2018 using the boxoffice package in R.  Data were pulled from <a href="http://www.the-numbers.com">the-numbers</a> website.  Supplemental information on each film released in 2018 (such as MPAA rating and IMDB rating) were pulled from the <a href="http://www.imdb.com">Internet Movie Database</a> using the <a href="https://imdbpy.sourceforge.io/">IMDbPy</a> package in Python.</p>
+
+<p>Once the data had been pulled through the R and Python APIs, Excel was used to manipulate and aggregate the data.  The data files were saved in csv formats for use in the visualizations.</p>
+
+<h1 id="visualization">Visualization</h1>
+<p>I chose to use D3 for my visualizations because (a) it allowed the most flexibility in design and layout of my visualizations and (b) it was a great opportunity to practice (and expand) my new D3 skills.</p>
+
+<p>The main component of this project is an area chart, showing the US domestic box office for each day in 2018.</p>
+<div class="section" id="movies_viz"></div>
+<script type="text/javascript" src="/js/movies_area.js"></script>
+
+<p>The full project can be found <a href="https://edeckter.github.io/2018_boxoffice/movies_2018.html">here</a>.</p>
+
+
+            </div>
+            
+            </div>
+          </div>
+          <div class="pagination">
+              
+                <a class="btn btn-default" href="/2019/04/monty-hall" class="next">Newer Post</a>
+              
+              
+                <a class="btn btn-default" href="/2019/04/gender-politics" class="previous">Older Post</a>
+              
+          </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="container-fluid">
     <div class="row-fluid">
