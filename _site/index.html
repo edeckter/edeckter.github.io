@@ -57,6 +57,8 @@ Insights for a data-driven world.
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2020/01/movie-ratings">Using Natural Language Processing to Score Movie Reviews</a></li>
+        
           <li><a href="/2019/04/monty-hall">Simulating the "Monty Hall Problem"</a></li>
         
           <li><a href="/2019/04/box-office-2018">An Examination of the US Box Office in 2018</a></li>
@@ -64,8 +66,6 @@ Insights for a data-driven world.
           <li><a href="/2019/04/gender-politics">Gender Politics</a></li>
         
           <li><a href="/2019/02/oscar-ratings">What Influences Oscar Ratings?</a></li>
-        
-          <li><a href="/2019/02/welcome-to-deckter-data">Welcome to Deckter Data!</a></li>
         
     </ul>
 </div>
@@ -94,6 +94,40 @@ Insights for a data-driven world.
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2020/01/movie-ratings">Jan 6, 2020 - Using Natural Language Processing to Score Movie Reviews</a></h1>
+        
+        <div class="content">
+            <p>The idea to create a potential improvement over Rotten Tomatoes’ method of aggregating movie reviews has been kicking around in my head for a few years, but it wasn’t until I learned Natural Language Processing (NLP) techniques that I was really able to implement the idea.  Rotten Tomatoes creates its 
+aggregated movie review scores by assigning a binary sentiment
+label to each review for a film (“fresh” for positive and “rotten” for
+negative) and taking an average of the
+binary scores to come up with an aggregated score between 0% and
+100%.  For example, if a movie’s reviews were all mildly positive, Rotten
+Tomatoes would assign a sentiment of positive to every review,
+resulting in a score of 100%. In contrast, if a movie had very polarizing
+reviews, for example, 50 very positive and 50 very negative
+reviews, this methodology would result in a potentially misleading
+50% aggregated score.</p>
+
+<p>My idea is that rather than use a binary sentiment classification, a continuous score between 0 and 1.0 can be assigned to each movie review.  The aggregate score would then be based on an average of these ratings.</p>
+
+<p>Unfortunately, many publications do not append handy scores to their reviews in order to use them in aggregation. Human taggers can read each review
+and assign a score based on the content of the review; however, this is extremely inefficient when hundreds of movies are released each year and many publications write reviews of these movies. This is
+where NLP comes in: machine learning can be used automatically assign a review score based on the text content of the headline and review, and that is exactly what I did.</p>
+
+<p>In order to test a number of methods, I used three different types of models: a simple linear regression model, a recurrent neural network (RNN) model and a 1-dimensional convolutional neural network (CNN) model.  The linear regression model used term frequency-inverse document frequency (TF-IDF) to convert the review text into numerical features a model could use.  The RNN and CNN models both used word embeddings (learned during model training) to convert the text into model features.</p>
+
+<p>All models were trained on a subset of data from the [Stanford Network Analysis Project] (https://snap.stanford.edu/data/web-Movies.html), which consists of approximately 8 million Amazon user reviews of over 250,000 movies.  Once the models were trained, I tested it on actual movie reviews from newspaper and websites for four movies and created individual review and aggregate review scores for the four movies.</p>
+
+<p>The full code for this project can be found as a Jupyter notebook <a href="https://github.com/edeckter/movie_ratings/blob/master/Deckter_CS584_Project.ipynb">here</a>.  In addition, there is a paper describing the full experiment and the results <a href="https://github.com/edeckter/movie_ratings/blob/master/Deckter_CS584_ProjectReport.pdf">here</a>.</p>
+
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2019/04/monty-hall">Apr 11, 2019 - Simulating the "Monty Hall Problem"</a></h1>
@@ -295,26 +329,12 @@ Insights for a data-driven world.
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2019/02/welcome-to-deckter-data">Feb 21, 2019 - Welcome to Deckter Data!</a></h1>
-        
-        <div class="content">
-            <p>This site is dedicated to my love of all things data!</p>
-
-<h1 id="about-me">About me</h1>
-<p>I am a master’s candidate in Business Intelligence &amp; Analytics at Stevens Institute of Technology.  I have 14 years of professional experience in the insurance industry, primarily as a catastrophe modeling analyst, but also in IT operations and cybersecurity.</p>
-
-<p>Check me out on <a href="https://www.linkedin.com/in/erika-deckter-1831a4133">LinkedIn</a></p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
-  <span class="page_number ">Page: 1 of 1</span>
+  <span class="page_number ">Page: 1 of 2</span>
+  
+    <a class="btn btn-default" href="/page2" class="next">Older</a>
   
 </div>
 
@@ -325,7 +345,7 @@ Insights for a data-driven world.
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12 footer navbar-inverse navbar-fixed-bottom">
-            <p class="copyright">&copy;2019 Erika Deckter. Powered by <a href="http://jekyllrb.com">Jekyll</a>, using the <a href="https://github.com/scotte/jekyll-clean">Jekyll Clean theme</a>.
+            <p class="copyright">&copy;2020 Erika Deckter. Powered by <a href="http://jekyllrb.com">Jekyll</a>, using the <a href="https://github.com/scotte/jekyll-clean">Jekyll Clean theme</a>.
         </div>
     </div>
 </div>
